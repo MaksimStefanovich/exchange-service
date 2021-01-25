@@ -1,0 +1,10 @@
+version: "3.0"
+services:
+  exchange-service:
+    container_name: exchange-service
+    build:
+      context: .
+      dockerfile: Dockerfile
+#    image: ex:1.0.0
+    ports:
+      - "8081:8080"

@@ -1,0 +1,41 @@
+plugins {
+    id 'org.springframework.boot' version '2.4.1'
+    id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+    id 'java'
+}
+
+group = 'ru.stefanovich'
+version = '1.0.0-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    compileOnly 'org.projectlombok:lombok'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // https://mvnrepository.com/artifact/io.github.openfeign/feign-okhttp
+    compile group: 'io.github.openfeign', name: 'feign-okhttp', version: '10.12'
+// https://mvnrepository.com/artifact/io.github.openfeign/feign-jackson
+    compile group: 'io.github.openfeign', name: 'feign-jackson', version: '10.12'
+    // https://mvnrepository.com/artifact/io.github.openfeign/feign-slf4j
+    compile group: 'io.github.openfeign', name: 'feign-slf4j', version: '10.12'
+
+
+}
+
+test {
+    useJUnitPlatform()
+}
